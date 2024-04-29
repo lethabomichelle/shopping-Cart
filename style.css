@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-/* @font-face {
-    font-family: "Booter - Zero Zero";
-    src: url("Fonts/Booter - Zero Zero.woff") format("woff"),
-         url("Fonts/Booter - Zero Zero.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-} */
+
 
 * {
     box-sizing: border-box;
@@ -39,12 +33,6 @@ html, body {
     text-decoration: none;
     font-size: 17px;
   }
-.navbar .fa-solid {
-  width: 50px;
-  color: white;
-}
-
-  
   /* Navbar links on mouse-over */
   .navbar a:hover {
     background-color:#5c5757;
@@ -57,19 +45,19 @@ html, body {
   position: relatives;
 } */
 
-.iconCart span {
+/* .iconCart span {
   display: block;
   width: 30px;
   height: 30px;
   /* background-color:red; */
-  justify-content: center;
+  /* justify-content: center; */
   /* align-items: center; */
-  border-radius: 50%;
+  /* border-radius: 50%;
   align-items: center;
   position: absolute;
   top: 50%;
-  right: -20px;
-}
+  right: -20px; */
+} */
 
 .content-section {
     margin: 1em;
@@ -92,12 +80,12 @@ html, body {
 
 .main-footer {
     background-color: black;
-    color: white;
-    padding: .25em 0; 
+    padding: .25rem 0; 
 }
 
 .main-footer span {
     font-family: "Playfair Display", serif;
+    font-weight: bolder;
     color: white;
 
 }
@@ -124,6 +112,7 @@ html, body {
 
 .shop-item {
     margin: 30px;
+    background-color: #e8ecf1;
 }
 
 .shop-item-title {

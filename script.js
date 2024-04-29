@@ -11,12 +11,14 @@ function ready() {
         button.addEventListener('click', removeCartItem)
     }
 
+    // increase quantity function 
     let quantityInputs = document.getElementsByClassName('cart-quantity-input')
     for (let i = 0; i < quantityInputs.length; i++) {
         let input = quantityInputs[i]
         input.addEventListener('change', quantityChanged)
     }
 
+    // add to cart button function 
     let addToCartButtons = document.getElementsByClassName('shop-item-button')
     for (let i = 0; i < addToCartButtons.length; i++) {
         let button = addToCartButtons[i]
@@ -26,8 +28,9 @@ function ready() {
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
 }
 
+// checkOut button function
 function purchaseClicked() {
-    alert('Thank You')
+    alert('Thank you for choosing to shop with us. We appreciate your support and hope you enjoy your purchases.')
     let cartItems = document.getElementsByClassName('cart-items')[0]
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild)
@@ -35,12 +38,14 @@ function purchaseClicked() {
     updateCartTotal()
 }
 
+// remove fron cart button 
 function removeCartItem(event) {
     let buttonClicked = event.target
     buttonClicked.parentElement.parentElement.remove()
     updateCartTotal()
 }
 
+// quantity change function #number is always greater than 0
 function quantityChanged(event) {
     let input = event.target
     if (isNaN(input.value) || input.value <= 0) {
@@ -49,6 +54,7 @@ function quantityChanged(event) {
     updateCartTotal()
 }
 
+// add to cart button add items, price and image 
 function addToCartClicked(event) {
     let button = event.target
     let shopItem = button.parentElement.parentElement
@@ -64,12 +70,14 @@ function addItemToCart(title, price, imageSrc) {
     cartRow.classList.add('cart-row')
     let cartItems = document.getElementsByClassName('cart-items')[0]
     let cartItemNames = cartItems.getElementsByClassName('cart-item-title')
+    // for loop that doesnt allow added items to be added again 
     for (let i = 0; i < cartItemNames.length; i++) {
         if (cartItemNames[i].innerText == title) {
-            alert('Already in cart')
+            alert("Whoops! It seems that item is already in your cart. If you'd like to adjust the quantity, feel free to do so directly in your cart. Happy shopping!")
             return
         }
     }
+    // adding details to cart (html and js ) 
     let cartRowContents = `
         <div class="cart-item cart-column">
             <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
@@ -86,6 +94,7 @@ function addItemToCart(title, price, imageSrc) {
     cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
 }
 
+// total calculator 
 function updateCartTotal() {
     let cartItemContainer = document.getElementsByClassName('cart-items')[0]
     let cartRows = cartItemContainer.getElementsByClassName('cart-row')
